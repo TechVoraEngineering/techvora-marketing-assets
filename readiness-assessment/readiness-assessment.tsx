@@ -1,5 +1,5 @@
 import { useState } from "react";
-import BookingForm from "./booking-form";
+import BookingForm from "../BookingForms/booking-form";
 
 const sections = [
   {
@@ -208,30 +208,28 @@ export default function App() {
 
   // INTRO
   if (screen === "intro") return (
-    <div style={{ minHeight: "100vh", background: "#f8fafc", display: "flex", alignItems: "center", justifyContent: "center", padding: "24px", fontFamily: "'Segoe UI', sans-serif" }}>
-      <div style={{ maxWidth: 600, width: "100%" }}>
-        <div style={{ background: "#1e3a5f", borderRadius: 16, padding: "40px 40px 32px", color: "white", marginBottom: 24 }}>
-          <div style={{ fontSize: 13, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", color: "#7ec8f0", marginBottom: 12 }}>TechVora Solutions</div>
-          <h1 style={{ fontSize: 28, fontWeight: 700, margin: "0 0 16px", lineHeight: 1.3 }}>IT Modernization Readiness Assessment</h1>
-          <p style={{ fontSize: 15, color: "#c8dff0", lineHeight: 1.6, margin: 0 }}>Find out exactly where your infrastructure stands — and what to do next. 20 questions across 4 key areas. Takes about 4 minutes.</p>
-        </div>
-        <div style={{ background: "white", borderRadius: 16, padding: "28px 32px", marginBottom: 16, boxShadow: "0 1px 4px rgba(0,0,0,0.07)" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
-            {sections.map((s, i) => (
-              <div key={i} style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                <div style={{ width: 36, height: 36, borderRadius: 8, background: sectionColors[i] + "18", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18 }}>{s.icon}</div>
-                <div>
-                  <div style={{ fontSize: 13, fontWeight: 600, color: "#1e3a5f" }}>{s.title}</div>
-                  <div style={{ fontSize: 12, color: "#94a3b8" }}>{s.questions.length} questions</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-        <button onClick={() => setScreen("section")} style={{ width: "100%", background: "#1e3a5f", color: "white", border: "none", borderRadius: 10, padding: "16px", fontSize: 15, fontWeight: 600, cursor: "pointer" }}>
-          Start Assessment →
-        </button>
+    <div style={{ padding: "16px", fontFamily: "'Segoe UI', sans-serif" }}>
+      <div style={{ background: "#1e3a5f", borderRadius: 16, padding: "32px", color: "white", marginBottom: 16 }}>
+        <div style={{ fontSize: 13, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", color: "#7ec8f0", marginBottom: 10 }}>TechVora Solutions</div>
+        <h1 style={{ fontSize: 26, fontWeight: 700, margin: "0 0 12px", lineHeight: 1.3 }}>IT Modernization Readiness Assessment</h1>
+        <p style={{ fontSize: 15, color: "#c8dff0", lineHeight: 1.6, margin: 0 }}>Find out exactly where your infrastructure stands — and what to do next. 20 questions across 4 key areas. Takes about 4 minutes.</p>
       </div>
+      <div style={{ background: "white", borderRadius: 16, padding: "24px 28px", marginBottom: 12, boxShadow: "0 1px 4px rgba(0,0,0,0.07)" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 16 }}>
+          {sections.map((s, i) => (
+            <div key={i} style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <div style={{ width: 36, height: 36, borderRadius: 8, background: sectionColors[i] + "18", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18, flexShrink: 0 }}>{s.icon}</div>
+              <div>
+                <div style={{ fontSize: 13, fontWeight: 600, color: "#1e3a5f" }}>{s.title}</div>
+                <div style={{ fontSize: 12, color: "#94a3b8" }}>{s.questions.length} questions</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <button onClick={() => setScreen("section")} style={{ width: "100%", background: "#1e3a5f", color: "white", border: "none", borderRadius: 10, padding: "16px", fontSize: 15, fontWeight: 600, cursor: "pointer" }}>
+        Start Assessment →
+      </button>
     </div>
   );
 
@@ -240,9 +238,8 @@ export default function App() {
     const { sectionScores, overall } = calcResults();
     const tier = getTier(overall);
     return (
-      <div style={{ minHeight: "100vh", background: "#f8fafc", padding: "32px 24px", fontFamily: "'Segoe UI', sans-serif" }}>
-        <div style={{ maxWidth: 640, margin: "0 auto" }}>
-          <div style={{ background: "#1e3a5f", borderRadius: 16, padding: "32px", color: "white", marginBottom: 20, textAlign: "center" }}>
+      <div style={{ padding: "16px", fontFamily: "'Segoe UI', sans-serif" }}>
+          <div style={{ background: "#1e3a5f", borderRadius: 16, padding: "32px", color: "white", marginBottom: 16, textAlign: "center" }}>
             <div style={{ fontSize: 13, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", color: "#7ec8f0", marginBottom: 8 }}>Your Results</div>
             <div style={{ fontSize: 64, fontWeight: 800, color: tier.color, lineHeight: 1 }}>{overall}%</div>
             <div style={{ fontSize: 20, fontWeight: 700, marginTop: 8 }}>{tier.label}</div>
@@ -298,7 +295,6 @@ export default function App() {
             style={{ width: "100%", background: "transparent", color: "#64748b", border: "1.5px solid #e2e8f0", borderRadius: 10, padding: "14px", fontSize: 14, cursor: "pointer" }}>
             Retake Assessment
           </button>
-        </div>
       </div>
     );
   }
@@ -308,8 +304,7 @@ export default function App() {
   const displaySelected = selected !== null ? selected : (prevAnswered !== undefined ? prevAnswered : null);
 
   return (
-    <div style={{ minHeight: "100vh", background: "#f8fafc", padding: "32px 24px", fontFamily: "'Segoe UI', sans-serif" }}>
-      <div style={{ maxWidth: 600, margin: "0 auto" }}>
+    <div style={{ padding: "16px", fontFamily: "'Segoe UI', sans-serif" }}>
         {/* Progress */}
         <div style={{ marginBottom: 28 }}>
           <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 8 }}>
@@ -360,7 +355,6 @@ export default function App() {
           style={{ width: "100%", background: displaySelected !== null ? "#1e3a5f" : "#cbd5e1", color: "white", border: "none", borderRadius: 10, padding: "16px", fontSize: 15, fontWeight: 600, cursor: displaySelected !== null ? "pointer" : "not-allowed", transition: "background 0.2s" }}>
           {sectionIdx === sections.length - 1 && questionIdx === currentSection.questions.length - 1 ? "See My Results →" : "Next Question →"}
         </button>
-      </div>
     </div>
   );
 }
