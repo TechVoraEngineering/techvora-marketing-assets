@@ -209,7 +209,7 @@ export default function App() {
   // INTRO
   if (screen === "intro") return (
     <div style={{ padding: "16px", fontFamily: "'Segoe UI', sans-serif" }}>
-      <div style={{ background: "#1e3a5f", borderRadius: 16, padding: "32px", color: "white", marginBottom: 16 }}>
+      <div style={{ background: "#558DD9", borderRadius: 16, padding: "32px", color: "white", marginBottom: 16 }}>
         <div style={{ fontSize: 13, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", color: "#7ec8f0", marginBottom: 10 }}>TechVora Solutions</div>
         <h1 style={{ fontSize: 26, fontWeight: 700, margin: "0 0 12px", lineHeight: 1.3 }}>IT Modernization Readiness Assessment</h1>
         <p style={{ fontSize: 15, color: "#c8dff0", lineHeight: 1.6, margin: 0 }}>Find out exactly where your infrastructure stands — and what to do next. 20 questions across 4 key areas. Takes about 4 minutes.</p>
@@ -227,7 +227,7 @@ export default function App() {
           ))}
         </div>
       </div>
-      <button onClick={() => setScreen("section")} style={{ width: "100%", background: "#1e3a5f", color: "white", border: "none", borderRadius: 10, padding: "16px", fontSize: 15, fontWeight: 600, cursor: "pointer" }}>
+      <button onClick={() => setScreen("section")} className="btn-primary" style={{ width: "100%" }}>
         Start Assessment →
       </button>
     </div>
@@ -272,7 +272,7 @@ export default function App() {
             <div style={{ fontSize: 14, color: "#334155", marginTop: 4 }}>{tier.next}</div>
           </div>
 
-          <button onClick={() => setShowBooking(true)} style={{ width: "100%", background: "#1e3a5f", color: "white", border: "none", borderRadius: 10, padding: "16px", fontSize: 15, fontWeight: 600, cursor: "pointer", marginBottom: 12 }}>
+          <button onClick={() => setShowBooking(true)} className="btn-primary" style={{ width: "100%", marginBottom: 12 }}>
             {tier.cta} →
           </button>
           {showBooking && (
@@ -351,8 +351,7 @@ export default function App() {
           </div>
         </div>
 
-        <button onClick={handleNext} disabled={displaySelected === null}
-          style={{ width: "100%", background: displaySelected !== null ? "#1e3a5f" : "#cbd5e1", color: "white", border: "none", borderRadius: 10, padding: "16px", fontSize: 15, fontWeight: 600, cursor: displaySelected !== null ? "pointer" : "not-allowed", transition: "background 0.2s" }}>
+        <button onClick={handleNext} disabled={displaySelected === null} className="btn-primary" style={{ width: "100%" }}>
           {sectionIdx === sections.length - 1 && questionIdx === currentSection.questions.length - 1 ? "See My Results →" : "Next Question →"}
         </button>
     </div>

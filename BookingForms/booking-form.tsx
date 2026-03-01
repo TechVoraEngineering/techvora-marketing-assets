@@ -98,7 +98,7 @@ export default function BookingForm({
           <p style={{ fontSize: 14, color: "#64748b", lineHeight: 1.6, margin: "0 0 24px" }}>
             We'll be in touch within one business day to confirm your consultation.
           </p>
-          <button onClick={onClose} style={primaryBtn}>
+          <button onClick={onClose} className="btn-primary" style={{ width: "100%" }}>
             Done
           </button>
         </div>
@@ -173,11 +173,8 @@ export default function BookingForm({
         <button
           type="submit"
           disabled={status === "sending" || !name || !email}
-          style={{
-            ...primaryBtn,
-            opacity: status === "sending" || !name || !email ? 0.6 : 1,
-            cursor: status === "sending" || !name || !email ? "not-allowed" : "pointer",
-          }}
+          className="btn-primary"
+          style={{ width: "100%" }}
         >
           {status === "sending" ? "Sending…" : "Book Consultation →"}
         </button>
@@ -221,14 +218,3 @@ function Overlay({ children, onClose }: { children: React.ReactNode; onClose: ()
   );
 }
 
-const primaryBtn: React.CSSProperties = {
-  width: "100%",
-  background: "#1e3a5f",
-  color: "white",
-  border: "none",
-  borderRadius: 10,
-  padding: "15px",
-  fontSize: 15,
-  fontWeight: 600,
-  cursor: "pointer",
-};

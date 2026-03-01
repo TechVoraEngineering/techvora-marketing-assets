@@ -276,7 +276,7 @@ export default function LegacyCostCalculator() {
           </div>
         </div>
 
-        <button onClick={() => setScreen("context")} style={{ width: "100%", background: BRAND, color: "white", border: "none", borderRadius: 10, padding: "16px", fontSize: 15, fontWeight: 600, cursor: "pointer" }}>
+        <button onClick={() => setScreen("context")} className="btn-primary" style={{ width: "100%" }}>
           Calculate My Cost of Inaction →
         </button>
       </div>
@@ -368,7 +368,8 @@ export default function LegacyCostCalculator() {
 
           <button
             onClick={() => setShowBooking(true)}
-            style={{ width: "100%", background: BRAND, color: "white", border: "none", borderRadius: 10, padding: "16px", fontSize: 15, fontWeight: 600, cursor: "pointer", marginBottom: 12 }}
+            className="btn-primary"
+            style={{ width: "100%", marginBottom: 12 }}
           >
             Book My Free Consultation →
           </button>
@@ -507,11 +508,8 @@ export default function LegacyCostCalculator() {
         <button
           onClick={nextScreen}
           disabled={!ready}
-          style={{
-            width: "100%", background: ready ? BRAND : "#cbd5e1", color: "white",
-            border: "none", borderRadius: 10, padding: "16px", fontSize: 15, fontWeight: 600,
-            cursor: ready ? "pointer" : "not-allowed", transition: "background 0.2s",
-          }}
+          className="btn-primary"
+          style={{ width: "100%" }}
         >
           {screen === "ai" ? "Calculate My Cost of Inaction →" : "Next →"}
         </button>

@@ -1,0 +1,48 @@
+/* ─────────────────────────────────────────────────────────────────────────
+   TechVora Marketing Assets — Centralized Theme
+   ───────────────────────────────────────────────────────────────────────── */
+
+@import url("https://api.fontshare.com/v2/css?f[]=clash-grotesk@1&display=swap");
+
+/* ── CSS Variables ─────────────────────────────────────────────────────── */
+:root {
+  --color-brand:       #1e3a5f;
+  --color-primary:     #558DD9;
+  --color-primary-hover: #4070b8;
+  --color-primary-disabled: #9db8df;
+  --font-ui:           "'Segoe UI', sans-serif";
+  --font-display:      "Clash Grotesk Variable", sans-serif;
+}
+
+/* ── Primary Button ────────────────────────────────────────────────────── */
+.btn-primary {
+  font-family: "Clash Grotesk Variable", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: capitalize;
+  line-height: 1.2em;
+  color: #ffffff;
+  fill: #ffffff;
+  background-color: #558DD9;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #558DD9;
+  border-radius: 0px;
+  padding: 13px 28px 13px 25px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: #4070b8;
+  border-color: #4070b8;
+}
+
+.btn-primary:disabled {
+  background-color: var(--color-primary-disabled);
+  border-color: var(--color-primary-disabled);
+  cursor: not-allowed;
+  opacity: 0.7;
+}

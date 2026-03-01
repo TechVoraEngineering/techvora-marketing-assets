@@ -1,3 +1,4 @@
+import "./theme.css";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import LegacyCostCalculator from "./legacycostcalculator/legacy-cost-calculator";
